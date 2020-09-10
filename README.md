@@ -4,8 +4,8 @@ A simple cli interface for the [jisho](https://jisho.org) search api.
 
 ## Dependencies
 
-- requests
-- ansicolors
+- [requests](https://requests.readthedocs.io/en/master)
+- [ansicolors](https://pypi.org/project/ansicolors)
 
 Using pip:
 
@@ -15,7 +15,7 @@ pip install requests ansicolors
 
 ## Running
 
-Make sure to have python 3 and pip installed. Using pyinstaller is recommended - just add the executable to the PATH environment variable.
+Make sure to have python 3 and pip installed. Using pyinstaller is recommended for Windows users - just add the executable to the PATH environment variable.
 
 ```
 pip install pyinstaller
@@ -34,7 +34,11 @@ jisho <word or kanji>
 
 Full search options are documented at the [jisho docs](https://jisho.org/docs). Note that the api may not support all features of the website.
 
-Make sure your terminal can handle japanese characters.
+Make sure your terminal can handle japanese characters. The colors are for readability, but they can be customised by changing the definitions at the top of the code. Refer to the [ansicolors documentation](https://pypi.org/project/ansicolors).
+
+## Contributing
+
+You're welcome.
 
 ## Licence
 
