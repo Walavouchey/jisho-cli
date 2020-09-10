@@ -39,7 +39,7 @@ print(
                 [
                     " - ".join(
                         [
-                            color(t, fg="red") if i is 0 else color(t, fg=245) for i, t in enumerate(jp.values())
+                            color(t, fg="red") if i == 0 else color(t, fg=245) for i, t in enumerate(jp.values())
                         ]
                     ) for jp in w["japanese"]
                 ]
@@ -71,7 +71,7 @@ print(
                 [
                     " - ".join(
                         [
-                            color(t, fg="red") if i is 0 else color(t, fg=245) for i, t in enumerate(jp.values())
+                            color(t, fg="red") if i == 0 else color(t, fg=245) for i, t in enumerate(jp.values())
                         ]
                     ) for jp in w["japanese"][1:]
                 ]
