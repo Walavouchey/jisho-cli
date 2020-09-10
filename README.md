@@ -4,12 +4,13 @@ A simple cli interface for the [jisho](https://jisho.org) search api.
 
 ## Dependencies
 
+- requests
 - ansicolors
 
 Using pip:
 
 ```
-pip install ansicolors
+pip install requests ansicolors
 ```
 
 ## Running
@@ -32,3 +33,9 @@ jisho <word or kanji>
 ```
 
 Full search options are documented at the [jisho docs](https://jisho.org/docs). Note that the api may not support all features of the website.
+
+Make sure your terminal can handle japanese characters.
+
+## Licence
+
+jisho-cli is licensed under the [MIT licence](https://opensource.org/licenses/mit).

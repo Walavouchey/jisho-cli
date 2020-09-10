@@ -4,9 +4,20 @@ import os
 import platform
 import ctypes
 from urllib.parse import quote
-from functools import partial
 from colors import color
 import json
+
+def strongColor(string):
+    return color(string, fg="red")
+
+def neutralColor(string):
+    return color(string, fg=245)
+
+def tagColor(string):
+    return color(string, fg=130)
+
+def linkColor(string):
+    return color(string, fg="cyan")
 
 if not sys.stdout.isatty():
     def cancel(string, *args, **kwargs):
@@ -39,39 +50,39 @@ print(
                 [
                     " - ".join(
                         [
-                            color(t, fg="red") if i == 0 else color(t, fg=245) for i, t in enumerate(jp.values())
+                            strongColor(t) if i == 0 else neutralColor(t) for i, t in enumerate(w["japanese"][0].values())
                         ]
-                    ) for jp in w["japanese"]
+                    )
                 ]
             )
-            + (", " + color("common", fg=130) if w["is_common"] else "") 
-            + ((", " + ", ".join([color(t, fg=130) for t in w["jlpt"]])) if w["jlpt"] else "")
-            + ((", " + ", ".join([color(t, fg=130) for t in w["tags"]])) if w["tags"] else "")
+            + (", " + tagColor("common") if w["is_common"] else "") 
+            + ((", " + ", ".join([tagColor(t) for t in w["jlpt"]])) if w["jlpt"] else "")
+            + ((", " + ", ".join([tagColor(t) for t in w["tags"]])) if w["tags"] else "")
             + "\n\t" + "\n\t".join(
                 [
-                    color(f"{i + 1}. ", fg=245)
-                    + (color("(%s) " % ", ".join(s["parts_of_speech"]), fg=245) if s["parts_of_speech"] else "")
+                    neutralColor(f"{i + 1}. ")
+                    + (neutralColor("(%s) " % ", ".join(s["parts_of_speech"])) if s["parts_of_speech"] else "")
                     + "; ".join(
                         s["english_definitions"]
                     )
                     + (
-                        color(" (%s)" % (", ".join(s["tags"])
+                        neutralColor(" (%s)" % (", ".join(s["tags"])
                         + ((", see also " if s["tags"] else "see also ") if s["see_also"] else "")
-                        + ", ".join(s["see_also"])), fg=245) if s["tags"] or s["see_also"] else ""
+                        + ", ".join(s["see_also"]))) if s["tags"] or s["see_also"] else ""
                     )
-                    + (("\n\n\t" + "\n\t".join(
+                    + (("\n\t" + "\n\t".join(
                         [
-                            color(l["text"] + ": ", fg=245) + color(l["url"], fg="cyan") for l in s["links"]
+                            neutralColor(l["text"] + ": ") + linkColor(l["url"]) for l in s["links"]
                         ]
                     )) if s["links"] else "")
                     for i, s in enumerate(w["senses"])
                 ]
             ) 
-            + ((color("\n\t other forms: ", fg=245) + ", ".join(
+            + ((neutralColor("\n\t other forms: ") + ", ".join(
                 [
                     " - ".join(
                         [
-                            color(t, fg="red") if i == 0 else color(t, fg=245) for i, t in enumerate(jp.values())
+                            strongColor(t) if i == 0 else neutralColor(t) for i, t in enumerate(jp.values())
                         ]
                     ) for jp in w["japanese"][1:]
                 ]
@@ -79,5 +90,5 @@ print(
             for w in r["data"]
         ]
     )
-    + f"\n\nShowing results for \"{color(searchTerm, fg='red')}\". Link: {color('https://jisho.org/search/' + quote(searchTerm), fg='cyan')}"
+    + f"\n\nShowing results for \"{strongColor(searchTerm)}\". Link: {linkColor('https://jisho.org/search/' + quote(searchTerm))}"
 )
