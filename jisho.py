@@ -23,12 +23,10 @@ if not sys.stdout.isatty():
     def cancel(string, *args, **kwargs):
         return string
     color = cancel
-
-else:
-    if platform.system() == "Windows":
-        kernel32 = ctypes.windll.kernel32
-        kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
-        del kernel32
+elif platform.system() == "Windows":
+    kernel32 = ctypes.windll.kernel32
+    kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+    del kernel32
 
 cacheFile = os.getenv("localappdata") + "\\jishocache"
 r = ""
@@ -46,13 +44,9 @@ except Exception:
 print(
     "\n\n".join(
         [
-            ", ".join(
+            " - ".join(
                 [
-                    " - ".join(
-                        [
-                            strongColor(t) if i == 0 else neutralColor(t) for i, t in enumerate(w["japanese"][0].values())
-                        ]
-                    )
+                    strongColor(t) if i == 0 else neutralColor(t) for i, t in enumerate(w["japanese"][0].values())
                 ]
             )
             + (", " + tagColor("common") if w["is_common"] else "") 

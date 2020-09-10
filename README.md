@@ -5,17 +5,18 @@ A simple cli interface for the [jisho](https://jisho.org) search api.
 ## Dependencies
 
 - [requests](https://requests.readthedocs.io/en/master)
+- [urllib3](https://pypi.org/project/urllib3)
 - [ansicolors](https://pypi.org/project/ansicolors)
 
 Using pip:
 
 ```
-pip install requests ansicolors
+pip install requests urllib3 ansicolors
 ```
 
 ## Running
 
-Make sure to have python 3 and pip installed. Using pyinstaller is recommended for Windows users - just add the executable to the PATH environment variable.
+Make sure to have python and pip installed. Using pyinstaller is recommended for Windows users - just add the executable to the PATH environment variable.
 
 ```
 pip install pyinstaller
@@ -24,7 +25,7 @@ cd jisho-cli
 pyinstaller jisho-cli
 ```
 
-The executable will be at `dist/jisho/jisho.exe`.
+The executable will be at `dist/jisho/jisho.exe`. Searches are cached at `%APPDATA%/local/jishocache/` to save on repeated api calls.
 
 ## Usage
 
