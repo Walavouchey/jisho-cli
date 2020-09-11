@@ -30,10 +30,10 @@ The executable will be at `dist/jisho/jisho.exe`. Searches are cached at `%APPDA
 ## Usage
 
 ```
-jisho <word or kanji>
+Usage: [options] <word or kanji>                                                                                                                                                                                                                Options:                                                                                                                  -h, --help            show this help message and exit                                                                   -c COUNT, --count=COUNT                                                                                                                       number of results to display                                                                      -n, --no-cache        don't use cache
 ```
 
-Full search options are documented at the [jisho docs](https://jisho.org/docs). Note that the api may not support all features of the website.
+Full search term specifications are documented at the [jisho docs](https://jisho.org/docs). Note that the api may not support all features of the website.
 
 Make sure your terminal can handle japanese characters. The colors are for readability, but they can be customised by changing the definitions at the top of the code. Refer to the [ansicolors documentation](https://pypi.org/project/ansicolors).
 
