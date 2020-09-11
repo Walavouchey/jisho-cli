@@ -43,10 +43,13 @@ if len(args) <= 0:
     sys.exit(1)
 
 searchTerm = args[0]
-cacheFolder = os.getenv("localappdata") + "\\jishocache"
 r = ""
-def getDataAndCache(url, searchTerm, cacheFolder):
+def getDataAndCache(url, searchTerm):
     r = ""
+    cacheFolder = ""
+    appdata = os.getenv("localappdata")
+    if appdata:
+        cacheFolder = appdata + "\\jishocache"
     if not os.path.exists(cacheFolder):
         try:
             os.system(f"mkdir e{cacheFolder}")
@@ -65,7 +68,7 @@ def getDataAndCache(url, searchTerm, cacheFolder):
     return r
 
 if options.cache:
-    r = getDataAndCache("https://jisho.org/api/v1/search/words?keyword=%s", searchTerm, cacheFolder)
+    r = getDataAndCache("https://jisho.org/api/v1/search/words?keyword=%s", searchTerm)
 else:
     r = req.get("https://jisho.org/api/v1/search/words?keyword=%s" % searchTerm).json()
 
