@@ -103,6 +103,7 @@ print(
                                         ) for j in s["see_also"]
                                     ]
                                 )
+                                + (neutralColor(", " + ", ".join(s["info"])) if s["info"] else "")
                             )
                         ) if s["tags"] or s["see_also"] else ""
                     )
