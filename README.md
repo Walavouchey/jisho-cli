@@ -30,7 +30,13 @@ The executable will be at `dist/jisho/jisho.exe`. Searches are cached at `%APPDA
 ## Usage
 
 ```
-Usage: [options] <word or kanji>                                                                                                                                                                                                                Options:                                                                                                                  -h, --help            show this help message and exit                                                                   -c COUNT, --count=COUNT                                                                                                                       number of results to display                                                                      -n, --no-cache        don't use cache
+Usage: [options] <word or kanji>
+
+Options:
+-h, --help            show this help message and exit
+-c COUNT, --count=COUNT
+                      number of results to display
+-n, --no-cache        don't use cache
 ```
 
 Full search term specifications are documented at the [jisho docs](https://jisho.org/docs). Note that the api may not support all features of the website.
