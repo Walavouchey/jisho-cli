@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import requests as req
 import sys
 import os
@@ -50,19 +52,23 @@ def getDataAndCache(url, searchTerm):
     appdata = os.getenv("localappdata")
     if appdata:
         cacheFolder = appdata + "\\jishocache"
-    if not os.path.exists(cacheFolder):
+    if not os.path.exists(cacheFolder) and appdata:
         try:
-            os.system(f"mkdir e{cacheFolder}")
+            os.system(f"mkdir {cacheFolder}")
         except Exception:
             pass
     try:
-        with open(f"{cacheFolder}\\{searchTerm}", "r", encoding="utf-8") as file:
-            r = json.loads(file.read())
+        if appdata is not None:
+            with open(f"{cacheFolder}\\{searchTerm}", "r", encoding="utf-8") as file:
+                r = json.loads(file.read())
+        else:
+            raise
     except Exception:
-        r = req.get(url % searchTerm).json();
+        r = req.get(url % searchTerm).json()
         try:
-            with open(f"{cacheFolder}\\{searchTerm}", "w", encoding="utf-8") as file:
-                file.write(json.dumps(r));
+            if appdata is not None:
+                with open(f"{cacheFolder}\\{searchTerm}", "w", encoding="utf-8") as file:
+                    file.write(json.dumps(r))
         except Exception:
             pass
     return r
