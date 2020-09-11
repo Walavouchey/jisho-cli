@@ -28,18 +28,24 @@ elif platform.system() == "Windows":
     kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
     del kernel32
 
-cacheFile = os.getenv("localappdata") + "\\jishocache"
-r = ""
 searchTerm = sys.argv[1]
-if not os.path.exists(cacheFile):
-    os.system(f"mkdir {cacheFile}")
+cacheFolder = os.getenv("localappdata") + "\\jishocache"
+r = ""
+if not os.path.exists(cacheFolder):
+    try:
+        os.system(f"mkdir e{cacheFolder}")
+    except Exception:
+        pass
 try:
-    with open(f"{cacheFile}\\{searchTerm}", "r", encoding="utf-8") as file:
+    with open(f"{cacheFolder}\\{searchTerm}", "r", encoding="utf-8") as file:
         r = json.loads(file.read())
 except Exception:
     r = req.get(f"https://jisho.org/api/v1/search/words?keyword={searchTerm}").json();
-    with open(f"{cacheFile}\\{searchTerm}", "w", encoding="utf-8") as file:
-        file.write(json.dumps(r));
+    try:
+        with open(f"{cacheFolder}\\{searchTerm}", "w", encoding="utf-8") as file:
+            file.write(json.dumps(r));
+    except Exception:
+        pass
 
 print(
     "\n\n".join(
