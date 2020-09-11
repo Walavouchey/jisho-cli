@@ -30,7 +30,7 @@ The executable will be at `./dist/jisho/jisho.exe`. Searches are cached at `%APP
 ## Usage
 
 ```
-Usage: [options] <word or kanji>
+Usage: jisho [options] <word or kanji>
 
 Options:
 -h, --help            show this help message and exit
