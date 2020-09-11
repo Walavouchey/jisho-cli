@@ -33,7 +33,7 @@ def checkCount(option, opt_str, value, parser):
     if value <= 0:
         raise optparse.OptionValueError(f"option {opt_str}: expected an integer > 0, got {value}")
     parser.values.count = value
-usage = "Usage: [options] <word or kanji>"
+usage = "Usage: jisho [options] <word or kanji>"
 parser = optparse.OptionParser(usage=usage)
 parser.add_option("-c", "--count", type="int", dest="count", metavar="COUNT", action="callback", callback=checkCount, help="number of results to display")
 parser.add_option("-n", "--no-cache", action="store_false", dest="cache", default=True, help="don't use cache")

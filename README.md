@@ -1,6 +1,6 @@
-# jisho-cli
+# Jisho-cli
 
-A simple cli interface for the [jisho](https://jisho.org) search api.
+A simple cli interface for the [Jisho](https://jisho.org) search api.
 
 ## Dependencies
 
@@ -25,7 +25,7 @@ cd jisho-cli
 pyinstaller jisho-cli
 ```
 
-The executable will be at `dist/jisho/jisho.exe`. Searches are cached at `%APPDATA%/local/jishocache/` to save on repeated api calls.
+The executable will be at `./dist/jisho/jisho.exe`. Searches are cached at `%APPDATA%/local/jishocache/` to save on repeated api calls.
 
 ## Usage
 
@@ -39,7 +39,7 @@ Options:
 -n, --no-cache        don't use cache
 ```
 
-Full search term specifications are documented at the [jisho docs](https://jisho.org/docs). Note that the api may not support all features of the website.
+Full search term specifications are documented at the [Jisho docs](https://jisho.org/docs). Note that the api may not support all features of the website.
 
 Make sure your terminal can handle japanese characters. The colors are for readability, but they can be customised by changing the definitions at the top of the code. Refer to the [ansicolors documentation](https://pypi.org/project/ansicolors).
 
@@ -49,4 +49,4 @@ You're welcome.
 
 ## Licence
 
-jisho-cli is licensed under the [MIT licence](https://opensource.org/licenses/mit).
+Jisho-cli is licensed under the [MIT licence](https://opensource.org/licenses/mit).
