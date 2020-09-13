@@ -16,7 +16,7 @@ pip install requests urllib3 ansicolors
 
 ## Running
 
-Make sure to have python and pip installed. Using pyinstaller is recommended for Windows users - just add the executable to the PATH environment variable.
+Make sure to have python and pip installed. Using pyinstaller is recommended - just add the executable to the PATH environment variable.
 
 ```
 pip install pyinstaller
@@ -25,7 +25,7 @@ cd jisho-cli
 pyinstaller jisho-cli
 ```
 
-The executable will be at `./dist/jisho/jisho.exe`. Searches are cached at `%APPDATA%/local/jishocache/` to save on repeated api calls.
+The executable will be at `./dist/jisho/jisho.exe`. Searches are cached at `%APPDATA%/local/jisho-cli/` or `$HOME/.cache/jisho-cli/` to save on repeated api calls.
 
 ## Usage
 
