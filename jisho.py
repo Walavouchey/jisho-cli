@@ -86,7 +86,7 @@ print(
                     strongColor(t) if i == 0 else neutralColor(t) for i, t in enumerate(w["japanese"][0].values())
                 ]
             )
-            + (", " + tagColor("common") if w["is_common"] else "") 
+            + (", " + tagColor("common") if "is_common" in w and w["is_common"] else "") 
             + ((", " + ", ".join([tagColor(t) for t in w["jlpt"]])) if w["jlpt"] else "")
             + ((", " + ", ".join([tagColor(t) for t in w["tags"]])) if w["tags"] else "")
             + "\n\t" + "\n\t".join(
