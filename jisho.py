@@ -6,7 +6,6 @@ import os
 import platform
 import ctypes
 import optparse
-from urllib.parse import quote
 from colors import color
 import json
 
@@ -143,5 +142,5 @@ print(
             for w in r["data"][0:count]
         ]
     )
-    + f"\n\nShowing {count}{'/' + str(len(r['data'])) if options.count else ''} result{'' if count == 1 else 's'} for \"{strongColor(searchTerm)}\". Link: {linkColor('https://jisho.org/search/' + quote(searchTerm))}"
+    + f"\n\nShowing {count}{'/' + str(len(r['data'])) if options.count else ''} result{'' if count == 1 else 's'} for \"{strongColor(searchTerm)}\". Link: {linkColor('https://jisho.org/search/' + searchTerm)}"
 )

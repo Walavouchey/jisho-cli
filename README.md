@@ -5,18 +5,17 @@ A simple cli interface for the [Jisho](https://jisho.org) search api.
 ## Dependencies
 
 - [requests](https://requests.readthedocs.io/en/master)
-- [urllib3](https://pypi.org/project/urllib3)
 - [ansicolors](https://pypi.org/project/ansicolors)
 
-Using pip:
+Install using pip:
 
 ```
-pip install requests urllib3 ansicolors
+pip install requests ansicolors
 ```
 
 ## Running
 
-Make sure to have python and pip installed. Using pyinstaller is recommended - just add the executable to the PATH environment variable.
+Make sure to have python and pip installed. Using pyinstaller is recommended - just add the executable location to the PATH environment variable.
 
 ```
 pip install pyinstaller
